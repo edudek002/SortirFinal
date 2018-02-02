@@ -51,7 +51,7 @@ span.onclick = function() {
 function validateForm() {
 
   //wait x seconds until the data from Ajax loads and then show the map
-  setTimeout(initMap, 10000);
+  
   // prevent event default behavior
   event.preventDefault();
 
@@ -98,6 +98,8 @@ function validateForm() {
           console.log('Error parsing JSON:', eventLng[i]);
         }
         eventLng.push(eventLng[i]);
+
+        initMap();
 
         //================ Table Population ===============================
         

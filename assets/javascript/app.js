@@ -24,6 +24,7 @@ var pickedLat;        //Chosen Event Latitude
 var pickedLng;        //Chosen Event Longitude
 
 
+
 $(document).ready(function() {
   $("#event-date").material_select();
   $("#event-category").material_select();
@@ -173,14 +174,15 @@ function initMap() {
   });
 
   for (var i=0; i<10; i++){
-  latLng = new google.maps.LatLng(eventLat[i], eventLng[i]);
-  marker = new google.maps.Marker({
+    latLng = new google.maps.LatLng(eventLat[i], eventLng[i]);
+    marker = new google.maps.Marker({
       position: latLng,
       map: map
-  });
-};
+    });
+  };
 
 //================== Display current location on GoogleMap ====================
+
   
   var infoWindow = new google.maps.InfoWindow;
   // HTML5 geolocation.
@@ -199,8 +201,8 @@ function initMap() {
     //======this shows My location on the map
     infoWindow.setPosition(pos);
     infoWindow.setContent('Location found.');
-    infoWindow.open(map);
-    map.setCenter(pos);
+    //infoWindow.open(map);
+    //map.setCenter(pos);
   }, function() {
     handleLocationError(true, infoWindow, map.getCenter());
   });
@@ -209,16 +211,7 @@ function initMap() {
   handleLocationError(false, infoWindow, map.getCenter());
   };  
 };
-//Checking if the information from the maps is available after x seconds
-/* 
-function getMapCoor() {
-  console.log("My event lattitude = " + pickedLat);
-  console.log("My event longitude = " + pickedLng);
-  console.log("My latitude = " + myLat);
-  console.log("My longitude = " + myLng);
-  };
-setTimeout(getMapCoor, 20000);
-*/
+
 
 //===================  Lyft API and AJAX request ========================
 
